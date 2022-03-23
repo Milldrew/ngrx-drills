@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { AppState } from './app-state';
 
 @Component({
   selector: 'app-root',
@@ -6,16 +8,23 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
+  counter$;
+  constructor(private store: Store<AppState>) {
+    this.counter$ = store.select('counter');
+  }
   title = 'mock';
-  count: number = 0;
-
+  amount = 0;
   reset() {
-    this.count = 0;
+    this.store.dispatch({ type: 'RESET' });
   }
   decrement() {
-    this.count -= 1;
+    this.store.dispatch({ type: 'DECREMENT' });
   }
   increment() {
-    this.count += 1;
+    this.store.dispatch({ type: 'INCREMENT' });
+  }
+  incrementAmount() {
+    console.log('hi');
+    this.store.dispatch({ type: 'AMOUNT', payload: this.amount });
   }
 }
