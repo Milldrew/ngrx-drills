@@ -1,5 +1,7 @@
 <h1>Counter</h1>
-
-<div class="button">Increment</div>
-<div class="button">Decrement</div>
-<div class="button">Reset</div>
+<p class="count">
+  {{ count }}
+</p>
+<div class="button" (click)="increment()">Increment</div>
+<div class="button" (click)="decrement()">Decrement</div>
+<div class="button" (click)="reset()">Reset</div>
