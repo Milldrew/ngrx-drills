@@ -8,14 +8,16 @@ import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreRouterConnectingModule } from '@ngrx/router-store';
 import { JediComponent } from './jedi/jedi.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { jediReducer } from './jedi/jedi.reducer';
 
 @NgModule({
-  declarations: [AppComponent, JediComponent],
+  declarations: [AppComponent, JediComponent, PageNotFoundComponent],
   imports: [
     FormsModule,
     BrowserModule,
     AppRoutingModule,
-    StoreModule.forRoot({ counter: counterReducer }, {}),
+    StoreModule.forRoot({ counter: counterReducer, jedis: jediReducer }, {}),
     EffectsModule.forRoot([]),
     StoreRouterConnectingModule.forRoot(),
   ],
