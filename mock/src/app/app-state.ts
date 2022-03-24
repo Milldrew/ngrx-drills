@@ -1,6 +1,6 @@
 export type Jedi = {
   id: number;
-  name: string;
+  name: string | undefined;
 };
 export interface AppState {
   counter: number;
