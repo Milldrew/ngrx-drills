@@ -1,1 +1,19 @@
-<p>jedi works!</p>
+<h1>jedi</h1>
+<p class="count"></p>
+<input [(ngModel)]="jediName" type="text" placeholder="Jedi Name" />
+<div class="button" (click)="add()">Add</div>
+<input type="number" placeholder="Delete by ID" />
+<div class="button">Delete</div>
+<router-outlet> </router-outlet>
+{{ jediName }}
+
+<ul *ngFor="let jedi of jedis$ | async">
+  {{
+    jedi.id
+  }}
+  <br />
+  name:
+  {{
+    jedi.name
+  }}
+</ul>
