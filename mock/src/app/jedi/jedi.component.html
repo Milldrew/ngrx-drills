@@ -2,10 +2,11 @@
 <p class="count"></p>
 <input [(ngModel)]="jediName" type="text" placeholder="Jedi Name" />
 <div class="button" (click)="add()">Add</div>
-<input type="number" placeholder="Delete by ID" />
-<div class="button">Delete</div>
+<input [(ngModel)]="jediId" type="number" placeholder="Delete by ID" />
+<div class="button" (click)="remove()">Delete</div>
 <router-outlet> </router-outlet>
 {{ jediName }}
+{{ jediId }}
 
 <ul *ngFor="let jedi of jedis$ | async">
   {{

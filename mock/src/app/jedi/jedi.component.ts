@@ -2,6 +2,7 @@ import { AppState, Jedi } from '../app-state';
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
+import { addJedi, removeJedi } from './jedi.actions';
 
 @Component({
   selector: 'app-jedi',
@@ -15,15 +16,14 @@ export class JediComponent implements OnInit {
     this.jedis$ = store.select('jedis');
   }
   jediName?: string;
+  jediId?: number;
 
   add() {
     this.id++;
-    console.log('hi');
-    console.log(this.jediName);
-    this.store.dispatch({
-      type: 'ADD_JEDI',
-      payload: { id: this.id, name: this.jediName },
-    });
+    this.store.dispatch(addJedi({ id: this.id, name: this.jediName }));
+  }
+  remove() {
+    this.store.dispatch(removeJedi(this.jediId));
   }
   ngOnInit(): void {}
 }
