@@ -7,9 +7,10 @@ import { AppComponent } from './app.component';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreRouterConnectingModule } from '@ngrx/router-store';
+import { JediComponent } from './jedi/jedi.component';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, JediComponent],
   imports: [
     FormsModule,
     BrowserModule,
